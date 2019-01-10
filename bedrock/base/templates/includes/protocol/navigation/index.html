@@ -2,7 +2,7 @@
  # License, v. 2.0. If a copy of the MPL was not distributed with this
  # file, You can obtain one at http://mozilla.org/MPL/2.0/. -#}
 
-<div class="mzp-c-navigation">
+<div class="mzp-c-navigation {% if switch('global-fxa-cta-experiment') %}global-fxa-cta-enabled{% endif %}">
   <div class="mzp-c-navigation-l-content">
     <div class="mzp-c-navigation-container">
       <button class="mzp-c-navigation-menu-button" type="button" aria-controls="mzp-c-navigation-items">{{ _('Menu') }}</button>
@@ -21,6 +21,12 @@
       <div class="mzp-c-navigation-items" id="mzp-c-navigation-items">
         <div class="mzp-c-navigation-download">
           {{ download_firefox(alt_copy=_('Download Firefox'), dom_id='protocol-nav-download-firefox', button_color='mzp-t-secondary mzp-t-small', download_location='nav') }}
+          <div class="c-navigation-fxa-cta-container">
+            <a class="c-navigation-fxa-cta mzp-c-button mzp-t-secondary mzp-t-small mzp-t-download" href="https://accounts.firefox.com/signup?service=sync&context=fx_desktop_v3&entrypoint=mozorg-nav&utm_source=mozorg-nav&utm_content=mozorg-nav&utm_medium=referral&utm_campaign=mozorg-fxa-nav-experiment" data-button-name="Create a Firefox Account" data-link-type="button" data-cta-position="secondary cta">
+              Create a Firefox Account
+            </a>
+            <p class="c-navigation-fxa-cta-small-link"><a href="{{ url('firefox.accounts') }}">Learn More</a></p>
+          </div>
         </div>
         <div class="mzp-c-navigation-menu">
           <nav class="mzp-c-menu">
